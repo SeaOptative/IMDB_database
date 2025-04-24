@@ -1,9 +1,9 @@
 ## In this first set of queries, I'd be answering 4 questions about the IMDB database. 
 ### 1. List all the actors who acted in at least one movie in the 2nd half of the 19th century and at least one movie in the 1st half of the 20th century
 
-To find actors who acted in at least one movie in the 2nd half of the 19th century (1851-1900) and at least one movie in the 1st half of the 20th century (1901-1950), you can use the following SQL query:
+- To find actors who acted in at least one movie in the 2nd half of the 19th century (1851-1900) and at least one movie in the 1st half of the 20th century (1901-1950), you can use the following SQL query:
 
--We are selecting first name, last name, and ID for all actors who acted in at least one movie between 1851 and 1900.
+We are selecting first name, last name, and ID for all actors who acted in at least one movie between 1851 and 1900.
 ```
 
 SELECT
@@ -38,7 +38,7 @@ Here’s a sample result showing the first name, last name, and ID of all actors
 
 ### 2. List all the directors who directed a movie in a leap year 
 
--To list all the directors who directed at least one movie in a leap year, you can use the following SQL query:
+- To list all the directors who directed at least one movie in a leap year, you can use the following SQL query:
 
 ```
 SELECT DISTINCT --the DISTINCT function ensures that each director only show up once, even if they directed multiple movie in leap years.
@@ -101,7 +101,7 @@ Sample result for movies released in 2001 with a better rank than Shrek(2001).
 
 ![sample result](./screenshots/2.1.png)
 
--To go a step further, we can decide to order by rank to get the highest-ranking movies 
+- To go a step further, we can decide to order by rank to get the highest-ranking movies 
 
 ```
 SELECT DISTINCT
@@ -117,7 +117,7 @@ ORDER BY Rank DESC
 
 Here we go! Now we see the movies with the highest rank. 
 
--Now let's try to add the genre. Let's see what genre these movies belong to.
+- Now let's try to add the genre. Let's see what genre these movies belong to.
 ```
 SELECT DISTINCT
 	name AS "Movie Title",
@@ -137,10 +137,10 @@ Result.
 
 We achieved this by joining the 'movie' and 'movie_genre' tables to get the genre. 
 
--Another step further, let's say we want to see movies that belong in the same genre as Shrek, were released in 2001, and have higher ratings than Shrek. 
+- Another step further, let's say we want to see movies that belong in the same genre as Shrek, were released in 2001, and have higher ratings than Shrek. 
 To do this, we first need to know what genre Shrek belongs to.
 
-According to the table, Shrek (2001) falls within the following genre:
+According to the database, Shrek (2001) falls within the following genre:
 
 ![sample result](./screenshots/shrek_genre.png)
 
