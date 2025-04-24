@@ -30,4 +30,4 @@ JOIN movie m ON c.movie_id = m.id
 WHERE m.year BETWEEN 1901 AND 1950;
 ```
 Here is the sample result 
-![sample result](./Screenshots/question1)
+![sample result](./Screenshots/question1.png)
