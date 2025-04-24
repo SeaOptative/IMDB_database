@@ -190,3 +190,43 @@ ORDER BY Rank DESC
 ![Romance genre](./screenshots/2.8.png)
 ![Comedy genre](./screenshots/2.9.png)
 Now we see movies that have the same ranking, were released same year, and share genre as Shrek(2001)
+
+
+### 4. List the first name and last name of all the actors who played in the movie 'Officer 444 (1926)'
+
+- To list the first and last names of all actors who played in the movie 'Officer 444 (1926)', use the following SQL query:
+
+```
+--DISTINCT is used to avoid duplicates
+SELECT DISTINCT
+	a.first_name AS "First Name",
+	a.last_name AS "Last name" 
+FROM actor a
+--Join the actor, cast, and movie tables to connect actors with their roles in movies.
+JOIN cast c ON a.id = c.actor_id
+JOIN movie m ON c.movie_id = m.id
+--the WHERE clause filters to ensure the correct movie, based on our criteria, is selected 
+WHERE m.name = 'Officer 444' AND m.year = 1926;
+
+```
+Here is the result, showing all actors who played in the movie 'Officer 444 (1926)'
+
+![sample result](./screenshots/3.1.png)
+
+- Let's imagine that after getting the above result, your superior requests that you explore deeper to determine their position. 
+
+We can achieve that using the following query:
+```
+--DISTINCT is used to avoid duplicates
+SELECT DISTINCT a.first_name AS "First Name",
+	a.last_name AS "Last name",
+	role AS "Role Played"
+FROM actor a
+--Join the actor, cast, and movie tables to connect actors with their roles in movies.
+JOIN cast c ON a.id = c.actor_id
+JOIN movie m ON c.movie_id = m.id
+--the WHERE clause filters to ensure the correct movie, based on our criteria, is selected 
+WHERE m.name = 'Officer 444' AND m.year = 1926;
+```
+
+![sample result](./screenshots/3.2.png)
