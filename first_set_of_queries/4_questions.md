@@ -30,7 +30,7 @@ JOIN cast c ON a.id = c.actor_id
 JOIN movie m ON c.movie_id = m.id
 WHERE m.year BETWEEN 1901 AND 1950;
 ```
-Here is the sample result showing the first name, last name, and ID of all actors who acted in at least one movie in the 2nd half of the 19th century and at least one movie in the 1st half of the 20th century.
+Here’s a sample result showing the first name, last name, and ID of all actors who appeared in at least one movie in the second half of the 19th century and at least one movie in the first half of the 20th century.
 
 ![sample result](./screenshots/question1.png)
 
@@ -59,7 +59,7 @@ WHERE
 Here is the sample result showing the first name, last name, and ID of all directors who directed at least one movie in a leap year.
 ![sample result](./screenshots/question2.png)
 
-We can decide to take it a step further and find the names of the movies they directed.
+We can take it a step further and find the names of the movies they directed.
 
 ```
 SELECT DISTINCT --the DISTINCT function ensures that each director only show up once, even if they directed multiple movie in leap years.
