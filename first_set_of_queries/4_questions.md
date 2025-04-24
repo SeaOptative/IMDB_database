@@ -78,8 +78,105 @@ WHERE
 	(m.year % 400 = 0) OR (m.year % 4 = 0 AND m.year % 100 != 0);
 
 ```
-All I did was add a new column by adding a new line of code "name AS "Movie name"".
+To display the names of the movies, I added a new column by adding a new line of code "name AS "Movie name"".
 
 Here is the sample result showing the name of the directors, their ID, as well as the name of all the movies they directed in a leap year:
 
 ![sample result](./screenshots/1b2.png)
+
+
+### 3. List all the movies that have the same year as the movie 'Shrek (2001)', but a better rank. (Note: a bigger value of rank implies a better rank.) The ranking for 'Shrek (2001)' is 8.1. 
+
+To do this, we use the following query:
+```
+SELECT DISTINCT
+	name AS "Movie Title",
+	rank AS " Rank"
+FROM movie
+--filters out movies that were released in 2001 and have a higher ranking than 8.1 
+WHERE year = "2001" AND rank > 8.1
+
+```
+Sample result for movies released in 2001 with a better rank than Shrek(2001). 
+![sample result](./screenshots/2.1.png)
+
+-To go a step further, we can decide to order by rank to get the highest-ranking movies 
+
+```
+SELECT DISTINCT
+	name AS "Movie Title",
+	rank AS " Rank"
+FROM movie
+--filters out movies that were released in 2001 and have a higher ranking than 8.1 
+WHERE year = "2001" AND rank > 8.1
+ORDER BY Rank DESC
+
+```
+![sample result](./screenshots/2.2.png)
+
+Here we go! Now we see the movies with the highest rank. 
+
+-Now let's try to add the genre. Let's see what genre these movies belong to.
+```
+SELECT DISTINCT
+	name AS "Movie Title",
+	rank AS " Rank",
+	genre as "Genre"
+FROM movie m
+--join the movie and movie_genre table to get the genre 
+JOIN movie_genre mg ON m.id = mg.movie_id
+--filters out movies that were released in 2001 and have a higher ranking than 8.1 
+WHERE year = "2001" AND rank > 8.1
+ORDER BY Rank DESC
+
+```
+Result:
+![sample result](./screenshots/2.3.png)
+We achieved this by joining the 'movie' and 'movie_genre' tables to get the genre. 
+
+-Another step further, let's say we want to see movies that belong in the same genre as Shrek, were released in 2001, and have higher ratings than Shrek. 
+To do this, we first need to know what genre Shrek belongs to.
+According to the table, Shrek (2001) falls within the following genre:
+![sample result](./screenshots/shrek_genre.png)
+
+Now let's write our query where we filter by genre to get our desired result. 
+```
+SELECT DISTINCT
+	name AS "Movie Title",
+	rank AS " Rank",
+	genre as "Genre"
+FROM movie m
+--join the movie and movie_genre table to get the genre 
+JOIN movie_genre mg ON m.id = mg.movie_id
+--filters out movies that were released in 2001 and have a higher ranking than 8.1 
+WHERE genre = "Adventure" AND year = "2001" AND rank > 8.1
+ORDER BY Rank DESC
+
+```
+Here we see movies that fall in the Adventure genre as Shrek.
+![Adventure genre](./screenshots/2.4.png)
+These movies share the same 'Family' genre as Shrek.
+![Family genre](./screenshots/2.5.png)
+These movies belong to the same 'Romance' genre as Shrek.
+![Romance genre](./screenshots/2.6.png)
+
+- Finally, we determine that we don't want movies that are ranked higher than Shrek; instead, we want movies have the same ranking as Shrek, released in the same year, and are in the same genre.
+How do we do that? Let's adjust our code.
+
+```
+SELECT DISTINCT
+	name AS "Movie Title",
+	rank AS " Rank",
+	genre as "Genre"
+FROM movie m
+--join the movie and movie_genre table to get the genre 
+JOIN movie_genre mg ON m.id = mg.movie_id
+--filters out movies that were released in 2001 and have a higher ranking than 8.1 
+WHERE genre = "Romance" AND year = "2001" AND rank = 8.1
+ORDER BY Rank DESC   
+
+```
+![Family genre](./screenshots/2.7.png)
+![Romance genre](./screenshots/2.8.png)
+![Comedy genre](./screenshots/2.9.png)
+Now we see movies that have the same ranking, were released same year, and share genre as Shrek(2001)
