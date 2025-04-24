@@ -63,9 +63,9 @@ We can take it a step further and find the names of the movies they directed.
 
 ```
 SELECT DISTINCT --the DISTINCT function ensures that each director only show up once, even if they directed multiple movie in leap years.
-d.id AS "Director ID", 
-d.first_name AS "First name", 
-d.last_name AS "Last name",
+	d.id AS "Director ID", 
+	d.first_name AS "First name", 
+	d.last_name AS "Last name",
 name AS "Movie name" 
 FROM director d
 
@@ -98,6 +98,7 @@ WHERE year = "2001" AND rank > 8.1
 
 ```
 Sample result for movies released in 2001 with a better rank than Shrek(2001). 
+
 ![sample result](./screenshots/2.1.png)
 
 -To go a step further, we can decide to order by rank to get the highest-ranking movies 
@@ -130,13 +131,17 @@ WHERE year = "2001" AND rank > 8.1
 ORDER BY Rank DESC
 
 ```
-Result:
+Result.
+
 ![sample result](./screenshots/2.3.png)
+
 We achieved this by joining the 'movie' and 'movie_genre' tables to get the genre. 
 
 -Another step further, let's say we want to see movies that belong in the same genre as Shrek, were released in 2001, and have higher ratings than Shrek. 
 To do this, we first need to know what genre Shrek belongs to.
+
 According to the table, Shrek (2001) falls within the following genre:
+
 ![sample result](./screenshots/shrek_genre.png)
 
 Now let's write our query where we filter by genre to get our desired result. 
@@ -154,10 +159,15 @@ ORDER BY Rank DESC
 
 ```
 Here we see movies that fall in the Adventure genre as Shrek.
+
 ![Adventure genre](./screenshots/2.4.png)
+
 These movies share the same 'Family' genre as Shrek.
+
 ![Family genre](./screenshots/2.5.png)
+
 These movies belong to the same 'Romance' genre as Shrek.
+
 ![Romance genre](./screenshots/2.6.png)
 
 - Finally, we determine that we don't want movies that are ranked higher than Shrek; instead, we want movies have the same ranking as Shrek, released in the same year, and are in the same genre.
