@@ -10,3 +10,4 @@ UNION SELECT 'movie_director' AS "name", 'table' AS "type", COUNT(*) AS "rows" F
 UNION SELECT 'movie_genre' AS "name", 'table' AS "type", COUNT(*) AS "rows" FROM "movie_genre"
 
 ```
+![Image: Total rows in each table](./Screenshots/row_counts.png)
