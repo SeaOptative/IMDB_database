@@ -5,6 +5,10 @@ The IMDb (Internet Movie Database) relational dataset is a structured representa
 
 I would write certain queries in this repository, such as finding actors and directors using different criteria and counting and ranking films, actors, and directors, among other things. 
 
+- The First set of queries can be found here: [First set of Queries](./first_set_of_quries.md)  
+- The Second set of queries can be found here: [Second set of Queries](./second_set_of_quries.md)
+
+
 ## Tables in the Database
 1.	Actor
      -  Contains information about actors.
