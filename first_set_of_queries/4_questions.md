@@ -1,3 +1,4 @@
+## In this first set of queries, I'd be answering 4 questions about the IMDB database. 
 ### 1. List all the actors who acted in at least one movie in the 2nd half of the 19th century and at least one movie in the 1st half of the 20th century
 
 To find actors who acted in at least one movie in the 2nd half of the 19th century (1851-1900) and at least one movie in the 1st half of the 20th century (1901-1950), you can use the following SQL query:
