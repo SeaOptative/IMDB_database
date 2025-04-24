@@ -20,4 +20,5 @@ UNION SELECT
 
 ```
 Here is the result of our query showing the number of rows present in each table. 
-![Image: Total rows in each table](./Screenshots/row_counts.png)
+
+![Image: Total rows in each table](./row_counts.png)
