@@ -57,3 +57,28 @@ WHERE
 ```
 Here is the sample result showing the first name, last name, and ID of all directors who directed at least one movie in a leap year.
 ![sample result](./screenshots/question2.png)
+
+We can decide to take it a step further and find the names of the movies they directed.
+
+```
+SELECT DISTINCT --the DISTINCT function ensures that each director only show up once, even if they directed multiple movie in leap years.
+d.id AS "Director ID", 
+d.first_name AS "First name", 
+d.last_name AS "Last name",
+name AS "Movie name" 
+FROM director d
+
+--join the director, movie_director, and movie tables to find all directors of movies released in leap years.
+JOIN movie_director md ON d.id = md.director_id
+JOIN movie m ON md.movie_id = m.id
+WHERE 
+--to find the leap year
+--A leap year occurs if the year is divisible by 400 or divisible  by 4 AND not divisible by 100.
+	(m.year % 400 = 0) OR (m.year % 4 = 0 AND m.year % 100 != 0);
+
+```
+All I did was add a new column by adding a new line of code "name AS "Movie name"".
+
+Here is the sample result showing the name of the directors, their ID, as well as the name of all the movies they directed in a leap year:
+
+![sample result](./screenshots/1b2.png)
