@@ -1,4 +1,4 @@
-## In this Second set of queries, I'd be answering 4 questions about the IMDB database. 
+## In this Second set of queries, I'd be answering 5 questions about the IMDB database. 
 
 ### 1. List all directors in descending order of the number of movies they directed.
 
